@@ -20,7 +20,7 @@ const MainContent = () => {
   return (
     <Container>
       <Title>My city Quito, Ecuador</Title>
-      <Image url={URL_1} isbanner />
+      <Image url={URL_1} />
     </Container>
   );
 };
