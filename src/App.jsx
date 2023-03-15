@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Header projectName="TaskTracker" />
-      <MainContent />
+      <MainContent color="red" />
       <Footer />
     </>
   );

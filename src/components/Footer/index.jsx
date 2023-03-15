@@ -4,6 +4,7 @@ const Container = styled.footer`
   display: flex;
   justify-content: center;
   padding: 20px 0px;
+  background: #ccc;
 `;
 
 const Footer = () => {
