@@ -1,14 +1,13 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import MainContent from "./components/MainContent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/templates/Home";
 
 const App = () => {
   return (
-    <>
-      <Header projectName="TaskTracker" />
-      <MainContent />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
