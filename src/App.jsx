@@ -1,8 +1,15 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/templates/Home";
+import Index from "./components/templates";
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello react</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/homework" element={<Index />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
