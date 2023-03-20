@@ -35,6 +35,7 @@ const Index = () => {
     <Table title="Projects">
       {projects?.map((val) => (
         <TableRow
+          key={val.id}
           title={val.title}
           description={val.description}
           createdAt={val.createdAt}

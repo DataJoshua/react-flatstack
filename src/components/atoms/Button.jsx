@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const Button = ({ children, name, handleOnClick, $color }) => {
+const Button = ({ children, name, handleOnClick, isDisabled, $color }) => {
   const ButtonContainer = styled.button(
     ({ color }) => css`
       padding: 10px 20px;
@@ -8,15 +8,12 @@ const Button = ({ children, name, handleOnClick, $color }) => {
       border-radius: 10px;
       border: none;
       background: ${color};
-
-      &:hover {
-        cursor: pointer;
-      }
+      cursor: pointer;
     `,
   );
 
   return (
-    <ButtonContainer onClick={handleOnClick} color={$color}>
+    <ButtonContainer onClick={handleOnClick} color={$color} disabled={isDisabled}>
       {name && <p>{name}</p>}
       {children}
     </ButtonContainer>

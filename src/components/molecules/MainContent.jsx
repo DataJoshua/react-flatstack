@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "../atoms/Button";
 
 const Container = styled.main`
-  height: 100vh;
+  height: calc(100vh - 152px);
   background-color: #ccc;
 `;
 
@@ -14,7 +14,7 @@ const MainContent = () => {
   return (
     <Container>
       <p>sample</p>
-      <Button name="click" handleOnClick={handleOnClick} color="#fab" />
+      <Button name="click" handleOnClick={handleOnClick} isDisabled />
     </Container>
   );
 };
