@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Header from "../molecules/Header";
-import Footer from "../molecules/Footer";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Container = styled.div`
   padding: 20px;

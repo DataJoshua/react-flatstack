@@ -1,19 +1,24 @@
 import styled, { css } from "styled-components";
 
-const ButtonContainer = styled.button(
-  ({ color }) => css`
-    padding: 10px 20px;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    background: ${color};
-  `,
-);
+const Button = ({ children, name, handleOnClick, $color }) => {
+  const ButtonContainer = styled.button(
+    ({ color }) => css`
+      padding: 10px 20px;
+      outline: none;
+      border-radius: 10px;
+      border: none;
+      background: ${color};
 
-const Button = ({ name, handleOnClick }) => {
+      &:hover {
+        cursor: pointer;
+      }
+    `,
+  );
+
   return (
-    <ButtonContainer onClick={handleOnClick}>
-      <p>{name}</p>
+    <ButtonContainer onClick={handleOnClick} color={$color}>
+      {name && <p>{name}</p>}
+      {children}
     </ButtonContainer>
   );
 };
