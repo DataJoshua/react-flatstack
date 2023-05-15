@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import Button from "../atoms/Button";
+import ModalWindow from "../atoms/ModalWindow/ModalWindow";
+import ModalContent from "./ModalContent";
 
 const LinkStyled = styled(Link)`
   text-decoration: none;
@@ -25,6 +28,14 @@ const TableRow = ({ title, description, createdAt, primary }) => {
     `,
   );
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const deleteProject = () => {
+    // make delete request to backend
+    alert("deleted ))");
+    setIsOpen(false);
+  };
+
   return (
     <Container color={primary ? "#25415A" : "#2F5373"}>
       <Col>
@@ -48,7 +59,10 @@ const TableRow = ({ title, description, createdAt, primary }) => {
       </Col>
       <Col>
         <Button $color="#AF3B3B">
-          <LinkStyled to="/projects/1">Destroy</LinkStyled>
+          <LinkStyled onClick={() => setIsOpen(true)}>Destroy</LinkStyled>
+          <ModalWindow isOpen={isOpen} setIsOpen={setIsOpen}>
+            <ModalContent onCancel={() => setIsOpen(false)} onConfirm={deleteProject} />
+          </ModalWindow>
         </Button>
       </Col>
     </Container>
