@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const Button = ({ children, name, handleOnClick, isDisabled, $color }) => {
+const Button = ({ children, name, handleOnClick, isDisabled, $color, isHidden }) => {
   const ButtonContainer = styled.button(
     ({ color }) => css`
       padding: 10px 20px;
@@ -9,6 +9,7 @@ const Button = ({ children, name, handleOnClick, isDisabled, $color }) => {
       border: none;
       background: ${color};
       cursor: pointer;
+      ${isHidden ? "display: none" : ""}
     `,
   );
 
