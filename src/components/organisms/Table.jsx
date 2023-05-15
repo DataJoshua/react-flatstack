@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Button from "../atoms/Button";
 
@@ -24,10 +25,37 @@ const Title = styled.h1`
   font-size: 1.4rem;
 `;
 
+const ButtonFixedStyles = styled.div`
+  position: fixed;
+  right: 50px;
+  top: 50px;
+`;
+
 const Table = ({ children, title }) => {
   const handleOnClick = () => {
     alert("not yet supported lol )");
   };
+
+  const handleScroll = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const [isHidden, setIsHidden] = useState(true);
+
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.scrollY === 0) {
+        setIsHidden(true);
+        return;
+      }
+
+      setIsHidden(false);
+    });
+
+    return () => {
+      document.removeEventListener("scroll", () => {});
+    };
+  }, []);
 
   return (
     <>
@@ -35,6 +63,9 @@ const Table = ({ children, title }) => {
         <Title>{title}</Title>
         <Button name="New Project" $color="#148AF1" handleOnClick={handleOnClick} />
       </Header>
+      <ButtonFixedStyles>
+        <Button name="To top" $color="#ccc" isHidden={isHidden} handleOnClick={handleScroll} />
+      </ButtonFixedStyles>
       <TableStyled>
         <thead>
           <tr>
